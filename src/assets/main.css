@@ -1,7 +1,7 @@
 *{
-    padding: 0%;
+    padding: 0;    /*padding: 0 → Краще та простіше, бо не змушує браузер робити зайві обчислення.
+                     padding: 0% → Працює, але не має сенсу і зайво навантажує рендеринг. */
     box-sizing: border-box;
-    cursor: default;
 }
 
 body{

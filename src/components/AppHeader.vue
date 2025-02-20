@@ -15,7 +15,7 @@
                 <li class="dropdown menu-item">
                     Налаштування &bigtriangledown;
                     <ul class="dropdown-menu">
-                        <li @click="resetData()" class="reset-button">Скинути дані</li>
+                        <li class="reset-button" @click="$emit('resetData')">Скинути дані</li> <!-- надсилається подія в App.vue -->
                     </ul>
                 </li>
                 <li class="dropdown menu-item">

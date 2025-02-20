@@ -1,6 +1,14 @@
 <template>
   <div class="el">
     <div class="el-name">
+    <div class="status-indicator" :class="{ active: activity.isRunning }"></div> <!-- динамічне привласнення класу -->
+<!--     Якщо activity.isRunning = false
+    <div class="status-indicator"></div>
+    Квадратик буде сірим (колір за замовчуванням у CSS).
+    
+    Якщо activity.isRunning = true
+    <div class="status-indicator active"></div>
+👉 До квадратика додається клас active, і CSS підсвічує його зеленим. -->
     <h3>{{ activity.name }}</h3>
     </div>
 
@@ -17,7 +25,7 @@
     </div>
 
     <div class="el-time">
-      <h3>{{ formattedTime }}</h3>
+      <p>{{ formattedTime }}</p>
     </div>
 
   </div>
@@ -93,13 +101,26 @@ export default {
   padding-left: 10px;
   align-items: center; /* вирівнює текст по вертикалі */
   justify-content: flex-start; /* текст залишається зліва */
+  gap: 10px;
 }
 .el-name h3{
   font-weight: normal; /* за замовчуванням h3 має жирний шрифт */
 }
+.status-indicator {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(179, 178, 178);
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+.status-indicator.active {
+  background-color: rgb(136, 241, 136);
+}
 .el-time{
   position: absolute;
   left: 1250px;
+  font-family: 'Montserrat';
+  font-size: 16px;
 }
 .button {
   height: 32px;
